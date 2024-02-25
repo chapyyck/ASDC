@@ -1,8 +1,8 @@
 lab_1/.idea/
 lab_1/out/
-lab_1/FileTest1.java
-lab_1/FileTest2.java
-lab_1/FileTest3.java
-lab_1/RegEx1.java
-lab_1/output.csv
-lab_1/output2.csv
+lab_1/WorkWithCSV/FileTest1.java
+lab_1/WorkWithCSV/FileTest2.java
+lab_1/WorkWithCSV/FileTest3.java
+lab_1/WorkWithCSV/RegEx1.java
+lab_1/WorkWithCSV/output.csv
+lab_1/WorkWithCSV/output2.csv

@@ -27,30 +27,31 @@ public class CSV {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                // проверка на кол-во запятых
-                int delimiterCount = line.length() - line.replace(",", "").length();
-                // разделение line на parts с помощью шаблона regex(запятых)
                 String[] parts = line.split(",");
+                /** Вычисляем кол-во запятых, отмечу что (parts.length != 4) не работает,
+                    т.к. добавленная в конце лишняя запятая не значит появление новой части */
+                int delimiterCount = line.length() - line.replace(",", "").length();
 
-                if (delimiterCount == 3) {
-                    if (isValidField(parts[0]) && isValidField(parts[1]) && isValidField(parts[2]) && isValidField(parts[3])) {
-
-                        String name = parts[0];
-                        int age = Integer.parseInt(parts[1]);
-                        String city = parts[2];
-                        Person.PersonType type = Person.PersonType.valueOf(parts[3]);
-
-                        persons.add(new Person(name, age, city, type));
-                    } else {
-                        System.out.println("Произошла ошибка: поле не может быть пустым или содержать запятую.");
-                        return null;
-                    }
-                } else {
+                if (delimiterCount != 3) {
                     System.out.println("Произошла ошибка: кол-во разделителей не соответствует требованиям.");
                     return null;
                 }
+                for (String part : parts) {
+                    if (!isValidField(part)) {
+                        System.out.println("Произошла ошибка: поле не может быть пустым или содержать запятую.");
+                        return null;
+                    }
+                }
+
+                String name = parts[0];
+                int age = Integer.parseInt(parts[1]);
+                String city = parts[2];
+                Person.PersonType type = Person.PersonType.valueOf(parts[3]);
+
+                persons.add(new Person(name, age, city, type));
             }
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             e.printStackTrace();
             return null;
         }
@@ -61,5 +62,4 @@ public class CSV {
 
         return persons;
     }
-
 }
