@@ -12,10 +12,10 @@ public class Main {
         persons.add(new Person("Elena", 27, "Tiraspol", Person.PersonType.TEACHER));
 
         // Сериализация в CSV
-        CSV.serializeToCSV(persons, "WorkWithCSV/output.csv");
+        CSV.serializeToCSV(persons, "lab_2/WorkWithCSV/output.csv");
 
         // Десериализация из CSV
-        List<Person> deserializedPersons = CSV.deserializeFromCSV("WorkWithCSV/output.csv");
+        List<Person> deserializedPersons = CSV.deserializeFromCSV("lab_2/WorkWithCSV/output.csv");
 
         if(deserializedPersons != null){
             System.out.println("\nDeserialization Done =)");
@@ -30,7 +30,7 @@ public class Main {
             deserializedPersons.add(new Person("Vladimir", 39, "Transilvania", Person.PersonType.TEACHER));
 
             System.out.println("\nSome changes...");
-            CSV.serializeToCSV(deserializedPersons, "WorkWithCSV/output2.csv");
+            CSV.serializeToCSV(deserializedPersons, "lab_2/WorkWithCSV/output2.csv");
         }
         else {
             System.out.println("Deserialization Failed =(");
