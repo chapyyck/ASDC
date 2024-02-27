@@ -52,6 +52,7 @@ public class SinglyLinkedList {
             firstNode = newNode;
         }
     }
+    
     FindNodeResult find(int value) {
         Node current = firstNode;
         Node previous = null;
@@ -63,6 +64,7 @@ public class SinglyLinkedList {
 
         return new FindNodeResult(current, previous);
     }
+
     public boolean removeAfter(int targetID) {
         Node current = firstNode;
         Node previous = null;
