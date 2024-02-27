@@ -52,7 +52,7 @@ public class SinglyLinkedList {
             firstNode = newNode;
         }
     }
-    
+
     FindNodeResult find(int value) {
         Node current = firstNode;
         Node previous = null;
@@ -111,7 +111,6 @@ class Main {
             System.out.println(f1.toString());
         }
 
-
         boolean isDeleted = list1.removeAfter(3); // Удаляем с ID: 4
 
         if (isDeleted) {
@@ -119,15 +118,6 @@ class Main {
         }
         else {
             System.out.println("\nЗапрашиваемый Нод не был удален");
-        }
-
-
-        FindNodeResult f2 = list1.find(40); // Пытаемся найти с ID: 4
-        if (f2.currentNode == null){
-            System.out.println("\nЗапрашиваемый Нод не найден");
-        }
-        else {
-            System.out.println(f2.toString());
         }
     }
 }
