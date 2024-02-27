@@ -9,12 +9,35 @@ class Node {
         this.ID = 1;
     }
 }
+
+class FindNodeResult {
+    Node currentNode, previousNode;
+    FindNodeResult(Node currentNode, Node previousNode) {
+        this.currentNode = currentNode;
+        this.previousNode = previousNode;
+    }
+
+    @Override
+    public String toString() {
+        if (previousNode != null) {
+            return "Значение currentNode = " + currentNode.data +
+                    ", Значение previousNode = " + previousNode.data;
+        }
+        else {
+            return "Значение currentNode = " + currentNode.data +
+                    ", previousNode не существует";
+        }
+    }
+}
+
 public class SinglyLinkedList {
+
     private Node firstNode, lastNode;
     public SinglyLinkedList() {
         this.firstNode = null;
         this.lastNode = null;
     }
+
     public void addNodeToEnd(int value) {
         Node newNode = new Node(value);
 
@@ -66,25 +89,6 @@ public class SinglyLinkedList {
             return true;
         }
         return false;
-    }
-}
-class FindNodeResult {
-    Node currentNode, previousNode;
-    FindNodeResult(Node currentNode, Node previousNode) {
-        this.currentNode = currentNode;
-        this.previousNode = previousNode;
-    }
-
-    @Override
-    public String toString() {
-        if (previousNode != null) {
-        return "Значение currentNode = " + currentNode.data +
-                ", Значение previousNode = " + previousNode.data;
-        }
-        else {
-            return "Значение currentNode = " + currentNode.data +
-                ", previousNode не существует";
-        }
     }
 }
 
