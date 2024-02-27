@@ -3,10 +3,11 @@ package LinkedLists_Queue;
 class Node {
     int data, ID;
     Node next;
+    private static int totalNodes = 0;
     public Node(int data) {
         this.data = data;
         this.next = null;
-        this.ID = 1;
+        this.ID = ++totalNodes;
     }
 }
 
@@ -42,7 +43,6 @@ public class SinglyLinkedList {
         Node newNode = new Node(value);
 
         if (lastNode != null) {
-            newNode.ID = lastNode.ID + 1;
             lastNode.next = newNode;
         }
 
@@ -70,7 +70,7 @@ public class SinglyLinkedList {
         Node previous = null;
 
         // Если хотим удалить самый первый узел.
-        if (targetID == 0){
+        if (targetID <= 0){
             firstNode = current.next;
             return true;
         }
@@ -121,5 +121,3 @@ class Main {
         }
     }
 }
-
-
