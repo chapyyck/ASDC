@@ -33,7 +33,7 @@ class FindNodeResult {
 
 public class SinglyLinkedList {
 
-    private Node firstNode, lastNode;
+    Node firstNode, lastNode;
     public SinglyLinkedList() {
         this.firstNode = null;
         this.lastNode = null;
