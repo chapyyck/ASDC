@@ -1,5 +1,5 @@
-package Searching_UnsortedArr;
-
+# Бинарное дерево поиска:
+```java
 class Node {
     int value;
     Node left;
@@ -87,3 +87,8 @@ class Main {
         System.out.println("Попробуем найти элемент 17: " + binaryTree.search(17)); // false
     }
 }
+```
+## Дерево будет выглядеть следующим образом:
+![Фото](../../secret_directory/binary_tree.png)
+
+
