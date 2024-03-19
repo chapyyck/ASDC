@@ -1,13 +1,12 @@
 package LinkedLists_Queue;
 
 class Node {
-    int data, ID;
+    int data;
     Node next;
     private static int totalNodes = 0;
     public Node(int data) {
         this.data = data;
         this.next = null;
-        this.ID = ++totalNodes;
     }
 }
 
@@ -65,32 +64,19 @@ public class SinglyLinkedList {
         return new FindNodeResult(current, previous);
     }
 
-    public boolean removeAfter(int targetID) {
-        Node current = firstNode;
-        Node previous = null;
-
-        // Если хотим удалить самый первый узел.
-        if (targetID <= 0){
-            firstNode = current.next;
-            return true;
+    public boolean removeAfter(FindNodeResult node) {
+        if (node == null || node.currentNode == null || node.currentNode.next == null) {
+            return false;
         }
 
-        while (current != null && current.ID != targetID) {
-            previous = current;
-            current = current.next;
+        Node nodeToDelete = node.currentNode.next;
+        node.currentNode.next = nodeToDelete.next;
+
+        if (nodeToDelete == lastNode) {
+            lastNode = node.currentNode;
         }
 
-        if (current != null && current.next != null) {
-            // Удаляем узел после узла с заданным ID
-            current.next = current.next.next;
-
-            // Если удалили последний узел, обновляем lastNode
-            if (current.next == null) {
-                lastNode = current;
-            }
-            return true;
-        }
-        return false;
+        return true;
     }
 }
 
@@ -111,7 +97,7 @@ class Main {
             System.out.println(f1.toString());
         }
 
-        boolean isDeleted = list1.removeAfter(3); // Удаляем с ID: 4
+        boolean isDeleted = list1.removeAfter(f1);
 
         if (isDeleted) {
             System.out.println("\nЗапрашиваемый Нод был удален");
