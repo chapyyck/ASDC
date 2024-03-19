@@ -20,7 +20,7 @@ public class CSV {
 
     // Проверка - является ли допустимым поле
     private static boolean isValidField(String field) {
-        return field != null && !field.contains(",") && field != "";
+        return field != null && field != "";
     }
 
     public static List<Person> deserializeFromCSV(String filePath) {
@@ -30,8 +30,11 @@ public class CSV {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
-                /** Вычисляем кол-во запятых, отмечу что (parts.length != 4) не работает,
-                    т.к. добавленная в конце лишняя запятая не значит появление новой части */
+                /** Все что связано с манипуляциями над parts.length НЕ РАБОТАЕТ, т.к.
+                    добавленные в конце лишние запятые !НЕ ЗНАЧАТ! появление новых частей
+                    (со скинутыми правками на этот счет не согласен, они не работают,
+                     т.к. частей в любом случае будет 4 независимо от кол-ва запятых в конце, хоть их 10)
+                 */
                 int delimiterCount = line.length() - line.replace(",", "").length();
 
                 if (delimiterCount != 3) {
@@ -48,7 +51,7 @@ public class CSV {
                 String name = parts[0];
                 int age = Integer.parseInt(parts[1]);
                 String city = parts[2];
-                Person.PersonType type = Person.PersonType.valueOf(parts[3]);
+                PersonType type = PersonType.valueOf(parts[3]);
 
                 persons.add(new Person(name, age, city, type));
             }

@@ -1,12 +1,12 @@
 package WorkWithCSV;
 
+enum PersonType {STUDENT, TEACHER, EMPLOYEE;}
+
 class Person {
     String name;
     int age;
     String city;
     PersonType type;
-
-    public enum PersonType {STUDENT, TEACHER, EMPLOYEE;}
 
     public Person(String name, int age, String city, PersonType type) {
         this.name = name;
