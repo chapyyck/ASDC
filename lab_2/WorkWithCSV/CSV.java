@@ -29,21 +29,15 @@ public class CSV {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",");
-                /** Все что связано с манипуляциями над parts.length НЕ РАБОТАЕТ, т.к.
-                    добавленные в конце лишние запятые !НЕ ЗНАЧАТ! появление новых частей
-                    (со скинутыми правками на этот счет не согласен, они не работают,
-                     т.к. частей в любом случае будет 4 независимо от кол-ва запятых в конце, хоть их 10)
-                 */
-                int delimiterCount = line.length() - line.replace(",", "").length();
-
-                if (delimiterCount != 3) {
-                    System.out.println("Произошла ошибка: кол-во разделителей не соответствует требованиям.");
+                String[] parts = line.split(",", 4);
+                if (parts.length != 4) {
+                    System.err.println("Произошла ошибка: кол-во разделителей не соответствует требованиям.");
                     return null;
                 }
+
                 for (String part : parts) {
                     if (!isValidField(part)) {
-                        System.out.println("Произошла ошибка: поле не может быть пустым или содержать запятую.");
+                        System.err.println("Произошла ошибка: поле не может быть пустым или содержать запятую.");
                         return null;
                     }
                 }
@@ -61,7 +55,11 @@ public class CSV {
             return null;
         }
         catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Произошла ошибка: поле не может быть пустым или содержать запятую.");
+            System.err.println("Произошла ошибка: поле не может быть пустым или содержать запятую.");
+            return null;
+        }
+        catch (IllegalArgumentException e) {
+            System.err.println("Ошибка в ENUM. (Проверь запятые)");
             return null;
         }
 
