@@ -2,4 +2,4 @@
 
 > Этот репозиторий содержит лабораторные работы, написанные на ЯП Java.
 
-![Фото](secret_directory/animal.jpg)
+![Фото](images/animal.jpg)

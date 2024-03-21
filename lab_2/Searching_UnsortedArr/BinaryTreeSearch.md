@@ -63,11 +63,9 @@ public class BinaryTreeSearch {
         while (currentNode != null) {
             if (value == currentNode.value) {
                 return true;
-            }
-            if (value < currentNode.value) {
+            } else if (value < currentNode.value) {
                 currentNode = currentNode.left;
-            }
-            if (value > currentNode.value) {
+            } else {
                 currentNode = currentNode.right;
             }
         }
@@ -89,6 +87,6 @@ class Main {
 }
 ```
 ## Дерево будет выглядеть следующим образом:
-![Фото](../../secret_directory/binary_tree.png)
+![Фото](../../images/binary_tree.png)
 
 
