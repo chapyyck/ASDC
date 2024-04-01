@@ -3,7 +3,6 @@ package LinkedLists_Queue;
 class Node {
     int data;
     Node next;
-    private static int totalNodes = 0;
     public Node(int data) {
         this.data = data;
         this.next = null;
@@ -64,32 +63,44 @@ public class SinglyLinkedList {
         return new FindNodeResult(current, previous);
     }
 
-    public boolean removeAfter(FindNodeResult node) {
-        if (node == null || node.currentNode == null || node.currentNode.next == null) {
+    public boolean removeAfter(Node node) {
+        if (node == null) {
+            if (firstNode != null) {
+                Node nodeToDelete = firstNode;
+                firstNode = firstNode.next;
+
+                if (nodeToDelete == lastNode) {
+                    lastNode = null;
+                }
+                System.out.println("\nБыл удален первый нод списка");
+                return true;
+            }
+            System.out.println("\nСписок пуст");
             return false;
         }
+        else if (node.next != null) {
+            Node nodeToDelete = node.next;
+            node.next = nodeToDelete.next;
 
-        Node nodeToDelete = node.currentNode.next;
-        node.currentNode.next = nodeToDelete.next;
-
-        if (nodeToDelete == lastNode) {
-            lastNode = node.currentNode;
+            if (nodeToDelete == lastNode) {
+                lastNode = node;
+            }
+            System.out.println("\nЗапрашиваемый Нод был удален");
+            return true;
         }
-
-        return true;
+        System.out.println("\nОшибка. Запрашиваемый нод - последний");
+        return false;
     }
 }
 
 class Main {
     public static void main(String[] args) {
-        SinglyLinkedList list1 = new SinglyLinkedList();
-        list1.addNodeToEnd(10);
-        list1.addNodeToEnd(20);
-        list1.addNodeToEnd(30);
-        list1.addNodeToEnd(40);
-        list1.addNodeToEnd(50);
+        SinglyLinkedList list = new SinglyLinkedList();
+        list.addNodeToEnd(10);
+        list.addNodeToEnd(20);
+        list.addNodeToEnd(30);
 
-        FindNodeResult f1 = list1.find(10);
+        FindNodeResult f1 = list.find(20);
         if (f1.currentNode == null){
             System.out.println("\nЗапрашиваемый Нод не найден");
         }
@@ -97,13 +108,6 @@ class Main {
             System.out.println(f1.toString());
         }
 
-        boolean isDeleted = list1.removeAfter(f1);
-
-        if (isDeleted) {
-            System.out.println("\nЗапрашиваемый Нод был удален");
-        }
-        else {
-            System.out.println("\nЗапрашиваемый Нод не был удален");
-        }
+        list.removeAfter(f1.currentNode);
     }
 }
