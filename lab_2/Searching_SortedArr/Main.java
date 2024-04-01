@@ -1,6 +1,6 @@
 package Searching_SortedArr;
 
-import static Searching_SortedArr.BinarySearch.binarySearch;
+import static Searching_SortedArr.BinarySearch.standardBinarySearch;
 import static Searching_SortedArr.ExponentialSearch.exponentialSearch;
 
 class Main {
@@ -8,7 +8,7 @@ class Main {
         int[] arr = {1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 23};
         int target = 15;
 
-        int resultOfBinarySearch = binarySearch(arr, target);
+        int resultOfBinarySearch = standardBinarySearch(arr, target);
         int resultOfExponentialSearch = exponentialSearch(arr, target);
 
         if (resultOfBinarySearch == resultOfExponentialSearch) {

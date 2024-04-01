@@ -2,25 +2,6 @@ package Searching_SortedArr;
 
 public class ExponentialSearch {
 
-    public static int binarySearch(int[] arr, int target, int left, int right) {
-        while (left <= right) {
-            // Делим массив пополам
-            int mid = left + (right - left) / 2;
-
-            if (arr[mid] > target) {
-                right = mid - 1;
-            }
-            else if (arr[mid] < target) {
-                left = mid + 1;
-            }
-            else if (arr[mid] == target) {
-                return mid;
-            }
-        }
-
-        return -1;
-    }
-
     public static int exponentialSearch(int[] arr, int target) {
         int border = 1;
         while (border < arr.length && arr[border] < target) {
@@ -36,6 +17,6 @@ public class ExponentialSearch {
             right = border;
         }
 
-        return binarySearch(arr, target, left, right);
+        return BinarySearch.binarySearch(arr, target, left, right);
     }
 }

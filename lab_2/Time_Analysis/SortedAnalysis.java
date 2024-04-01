@@ -1,8 +1,7 @@
 package Time_Analysis;
 
-import Searching_SortedArr.ExponentialSearch;
 import java.util.Set;
-import static Searching_SortedArr.BinarySearch.binarySearch;
+import static Searching_SortedArr.BinarySearch.standardBinarySearch;
 import static Searching_SortedArr.ExponentialSearch.exponentialSearch;
 import static Time_Analysis.GeneratingArrays.*;
 
@@ -10,7 +9,7 @@ public class SortedAnalysis {
 
     static void measureBinarySearch(int[] array, String description, int searchNumber) {
         long startTime = System.nanoTime();
-        binarySearch(array, searchNumber);
+        standardBinarySearch(array, searchNumber);
         long endTime = System.nanoTime();
         long duration = endTime - startTime;
         System.out.println("BinarySearch search in " + description + ": " + duration + " nanoseconds");
