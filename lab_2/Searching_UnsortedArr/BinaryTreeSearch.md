@@ -1,5 +1,7 @@
 # Бинарное дерево поиска:
 ```java
+package Searching_UnsortedArr;
+
 class Node {
     int value;
     Node left;
@@ -72,6 +74,17 @@ public class BinaryTreeSearch {
 
         return false;
     }
+
+    // не смог подогнать под интерфейс
+    public static void measureBinaryTreeSearch(int[] array, String description, int searchNumber) {
+        BinaryTreeSearch binaryTree = new BinaryTreeSearch();
+        binaryTree.addElements(array);
+        long startTime = System.nanoTime();
+        binaryTree.search(searchNumber);
+        long endTime = System.nanoTime();
+        long duration = endTime - startTime;
+        System.out.println("BinaryTree search in " + description + ": " + duration + " nanoseconds");
+    }
 }
 
 class Main {
@@ -81,8 +94,8 @@ class Main {
         int[] values = {5, 3, 7, 2, 4, 6, 8};
 
         binaryTree.addElements(values);
-        System.out.println("Попробуем найти элемент 2: " + binaryTree.search(2)); // true
-        System.out.println("Попробуем найти элемент 17: " + binaryTree.search(17)); // false
+        System.out.println("Попробуем найти элемент 2: " + binaryTree.search(2));
+        System.out.println("Попробуем найти элемент 17: " + binaryTree.search(17));
     }
 }
 ```
