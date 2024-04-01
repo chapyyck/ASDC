@@ -1,8 +1,10 @@
 package Searching_SortedArr;
 
-public class ExponentialSearch {
+import Time_Analysis.Searchable;
 
-    public static int exponentialSearch(int[] arr, int target) {
+public class ExponentialSearch implements Searchable {
+
+    public int search(int[] arr, int target) {
         int border = 1;
         while (border < arr.length && arr[border] < target) {
             border *= 2;

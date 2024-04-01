@@ -1,8 +1,11 @@
 package Searching_SortedArr;
 
-public class BinarySearch {
+import Time_Analysis.Searchable;
 
-    public static int standardBinarySearch(int[] arr, int target) {
+public class BinarySearch implements Searchable {
+
+    // Разделение методов для указания границ учитывая заимствование в экспоненциальном
+    public int search(int[] arr, int target) {
         int left = 0;
         int right = arr.length - 1;
 

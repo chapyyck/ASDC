@@ -1,7 +1,9 @@
 package Searching_UnsortedArr;
 
-public class LinearSearch {
-    public static int linearSearch(int[] array, int target) {
+import Time_Analysis.Searchable;
+
+public class LinearSearch implements Searchable {
+    public int search(int[] array, int target) {
         for (int i = 0; i < array.length; i++) {
             if (array[i] == target) {
                 return i;
@@ -13,7 +15,9 @@ public class LinearSearch {
     public static void main(String[] args) {
         int[] array = {5, 2, 9, 1, 7, 4, 8};
         int target = 7;
-        int result = linearSearch(array, target);
+
+        LinearSearch linearSearch = new LinearSearch();
+        int result = linearSearch.search(array, target);
 
         if (result != -1) {
             System.out.println("Элемент " + target + " найден в массиве по индексу " + result);

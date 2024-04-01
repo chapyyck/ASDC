@@ -1,15 +1,17 @@
 package Searching_SortedArr;
 
-import static Searching_SortedArr.BinarySearch.standardBinarySearch;
-import static Searching_SortedArr.ExponentialSearch.exponentialSearch;
+import Time_Analysis.Searchable;
 
 class Main {
     public static void main(String[] args) {
         int[] arr = {1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 23};
         int target = 15;
 
-        int resultOfBinarySearch = standardBinarySearch(arr, target);
-        int resultOfExponentialSearch = exponentialSearch(arr, target);
+        Searchable binarySearch = new BinarySearch();
+        int resultOfBinarySearch = binarySearch.search(arr, target);
+
+        Searchable exponentialSearch = new ExponentialSearch();
+        int resultOfExponentialSearch = exponentialSearch.search(arr, target);
 
         if (resultOfBinarySearch == resultOfExponentialSearch) {
             if (resultOfBinarySearch == -1) {

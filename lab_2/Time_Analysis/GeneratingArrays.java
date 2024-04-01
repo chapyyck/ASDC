@@ -29,12 +29,12 @@ class GeneratingArrays {
         return array;
     }
 
-    static Set<Integer> generateSearchSet(int size) {
-        Set<Integer> searchSet = new HashSet<>();
+    static int[] generateSearchArray(int size) {
+        int[] searchArray = new int[size];
         Random random = new Random();
-        while (searchSet.size() < size) {
-            searchSet.add(random.nextInt(10000));
+        for (int i = 0; i < size; i++) {
+            searchArray[i] = random.nextInt(10000);
         }
-        return searchSet;
+        return searchArray;
     }
 }
