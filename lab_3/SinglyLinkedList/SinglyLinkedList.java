@@ -1,9 +1,10 @@
-package LinkedLists_Queue;
+package SinglyLinkedList;
 
 class Node {
     int data;
     Node next;
-    public Node(int data) {
+
+    Node(int data) {
         this.data = data;
         this.next = null;
     }
@@ -11,6 +12,7 @@ class Node {
 
 class FindNodeResult {
     Node currentNode, previousNode;
+
     FindNodeResult(Node currentNode, Node previousNode) {
         this.currentNode = currentNode;
         this.previousNode = previousNode;
@@ -32,12 +34,13 @@ class FindNodeResult {
 public class SinglyLinkedList {
 
     Node firstNode, lastNode;
-    public SinglyLinkedList() {
+
+    SinglyLinkedList() {
         this.firstNode = null;
         this.lastNode = null;
     }
 
-    public void addNodeToEnd(int value) {
+    void addNodeToEnd(int value) {
         Node newNode = new Node(value);
 
         if (lastNode != null) {
@@ -63,7 +66,7 @@ public class SinglyLinkedList {
         return new FindNodeResult(current, previous);
     }
 
-    public boolean removeAfter(Node node) {
+    boolean removeAfter(Node node) {
         if (node == null) {
             if (firstNode != null) {
                 Node nodeToDelete = firstNode;
