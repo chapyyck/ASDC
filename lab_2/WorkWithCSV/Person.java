@@ -1,8 +1,6 @@
 package WorkWithCSV;
 
-enum PersonType {STUDENT, TEACHER, EMPLOYEE;}
-
-class Person {
+public class Person {
     String name;
     int age;
     String city;
