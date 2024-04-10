@@ -1,3 +1,3 @@
 package WorkWithCSV;
 
-public enum PersonType {STUDENT, TEACHER, EMPLOYEE;}
+public enum PersonType {EMPLOYEE, STUDENT, TEACHER;}

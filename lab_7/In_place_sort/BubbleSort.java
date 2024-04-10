@@ -1,11 +1,11 @@
 package In_place_sort;
 
-import java.util.Comparator;
+import Testing.MyComparator;
 
 public class BubbleSort<T> implements InPlaceSorting<T> {
 
     @Override
-    public void sortInPlace(T[] array, Comparator<T> comparator, SortingMetrics metrics) {
+    public void sortInPlace(T[] array, MyComparator<T> comparator, SortingMetrics metrics) {
 
         int n = array.length;
 

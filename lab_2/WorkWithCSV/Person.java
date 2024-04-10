@@ -1,10 +1,10 @@
 package WorkWithCSV;
 
 public class Person {
-    String name;
-    int age;
-    String city;
-    PersonType type;
+    public String name;
+    public int age;
+    public String city;
+    public PersonType type;
 
     public Person(String name, int age, String city, PersonType type) {
         this.name = name;
