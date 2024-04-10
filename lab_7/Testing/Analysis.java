@@ -1,8 +1,9 @@
 package Testing;
 
 import In_place_sort.*;
-import static In_place_sort.InPlaceSorting.measureSorting;
 import static Testing.GeneratePersons.generateRandomPersonArray;
+import static Testing.SortingMetrics.measureSorting;
+
 import WorkWithCSV.Person;
 import java.util.Arrays; // убрать
 
@@ -15,14 +16,14 @@ public class Analysis {
         MyComparator<Person> cityComparator = new CityComparator();
         MyComparator<Person> typeComparator = new TypeComparator();
 
-        InPlaceSorting<Person> bubbleSort = new BubbleSort<>();
-        measureSorting(bubbleSort, randomArray, ageComparator, "random array with using AgeComparator", new InPlaceSorting.SortingMetrics());
+        Sorting<Person, Void> bubbleSort = new BubbleSort<>();
+        measureSorting(bubbleSort, randomArray, ageComparator, "random array with using AgeComparator", new SortingMetrics());
 
 //        System.out.println("\nSorted array: " + Arrays.toString(randomArray));
 
-        InPlaceSorting<Person> quickSort = new QuickSort<>();
-        measureSorting(quickSort, randomArray, typeComparator, "random array with using typeComparator", new InPlaceSorting.SortingMetrics());
-
+//        Sorting<Person, Void> quickSort = new QuickSort<>();
+//        measureSorting(quickSort, randomArray, typeComparator, "random array with using TypeComparator", new SortingMetrics());
+//
 //        System.out.println("\nSorted array: " + Arrays.toString(randomArray));
     }
 }

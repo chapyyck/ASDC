@@ -1,12 +1,14 @@
 package In_place_sort;
 
 import Testing.MyComparator;
+import Testing.SortingMetrics;
 
 public class QuickSort<T> implements InPlaceSorting<T> {
 
     @Override
-    public void sortInPlace(T[] array, MyComparator<T> comparator, SortingMetrics metrics) {
+    public Void sort(T[] array, MyComparator<T> comparator, SortingMetrics metrics) {
         quickSort(array, comparator, 0, array.length - 1, metrics);
+        return null;
     }
 
     private void quickSort(T[] array, MyComparator<T> comparator, int low, int high, SortingMetrics metrics) {

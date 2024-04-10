@@ -1,11 +1,12 @@
 package In_place_sort;
 
 import Testing.MyComparator;
+import Testing.SortingMetrics;
 
 public class BubbleSort<T> implements InPlaceSorting<T> {
 
     @Override
-    public void sortInPlace(T[] array, MyComparator<T> comparator, SortingMetrics metrics) {
+    public Void sort(T[] array, MyComparator<T> comparator, SortingMetrics metrics) {
 
         int n = array.length;
 
@@ -23,5 +24,6 @@ public class BubbleSort<T> implements InPlaceSorting<T> {
                 }
             }
         }
+        return null;
     }
 }
