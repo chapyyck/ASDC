@@ -1,7 +1,6 @@
 package In_place_sort;
 
 import Testing.MyComparator;
-import Testing.SortingMetrics;
 
 public class QuickSort<T> implements InPlaceSorting<T> {
 

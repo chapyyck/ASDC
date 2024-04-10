@@ -2,7 +2,7 @@ package Testing;
 
 import In_place_sort.*;
 import static Testing.GeneratePersons.generateRandomPersonArray;
-import static Testing.SortingMetrics.measureSorting;
+import static Testing.Sorting.SortingMetrics.measureSorting;
 
 import WorkWithCSV.Person;
 import java.util.Arrays; // убрать
@@ -17,7 +17,7 @@ public class Analysis {
         MyComparator<Person> typeComparator = new TypeComparator();
 
         Sorting<Person, Void> bubbleSort = new BubbleSort<>();
-        measureSorting(bubbleSort, randomArray, ageComparator, "random array with using AgeComparator", new SortingMetrics());
+        measureSorting(bubbleSort, randomArray, ageComparator, "random array with using AgeComparator", new Sorting.SortingMetrics());
 
 //        System.out.println("\nSorted array: " + Arrays.toString(randomArray));
 

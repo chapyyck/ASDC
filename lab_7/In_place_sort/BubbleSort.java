@@ -1,7 +1,6 @@
 package In_place_sort;
 
 import Testing.MyComparator;
-import Testing.SortingMetrics;
 
 public class BubbleSort<T> implements InPlaceSorting<T> {
 
